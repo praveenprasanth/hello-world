@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBngOXaF5bAjcBK9HFrOqjPodIgSAdIhTU",
+      authDomain: "javascript-5f519.firebaseapp.com",
+      databaseURL: "https://javascript-5f519.firebaseio.com",
+      projectId: "javascript-5f519",
+      storageBucket: "javascript-5f519.appspot.com",
+      messagingSenderId: "956608709267"
+    };
+
+    var otherAppConfig = {
+    apiKey: "AIzaSyB20VWnadIvhBXDjXvjgfDIWcYQRJbQbLQ",
+    authDomain: "myapp-c0abe.firebaseapp.com",
+    databaseURL: "https://myapp-c0abe.firebaseio.com",
+    projectId: "myapp-c0abe",
+    storageBucket: "myapp-c0abe.appspot.com",
+    messagingSenderId: "999058970398"
+    };
+
+
+    firebase.initializeApp(config);
+
+    var otherApp = firebase.initializeApp(otherAppConfig, 'name');
+
+    console.log(otherApp);
+
+    var otherDatabase = otherApp.database().ref().child('objects');
+
+    
+
+    console.log(otherDatabase);
+
+    otherDatabase.on('value', function(snap){
+
+          console.log(snap.val());
+
+    });
+    
+ 
+
+
+
+    var database = firebase.database().ref().child('object');
+
+    database.on('value', function(snap){
+
+           console.log(snap.val());
+
+    })
+     
+</script>
+</body>
+</html>
